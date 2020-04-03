@@ -22,7 +22,8 @@ module AttachmentPatch
       unloadable
 
       #~ alias_method_chain :attach_files, :pasted_images
-      alias_method_chain :save_attachments, :pasted_images
+      # see https://www.redmine.org/boards/1/topics/56988
+      Module#prepend :save_attachments, :pasted_images
     end
   end
 
